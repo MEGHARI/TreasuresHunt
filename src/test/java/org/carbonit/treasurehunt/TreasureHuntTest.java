@@ -14,14 +14,18 @@ import org.junit.jupiter.api.Test;
      @Test
      void shouldInitLandAndAdventurerWithoutMouvements() {
          //Given
+         String name = "Lara";
+         int positionX = 1;
+         int positionY = 1;
+
          final Land land = new Land(3, 4);
-         final Adventurer lara = new Adventurer("Lara", 1, 1);
+         final Adventurer lara = new Adventurer(name, positionX, positionY);
 
          // When
          land.withAdventurer(lara);
 
          //Then
-         Assertions.assertEquals(lara.position(), new Position(1, 1));
+         Assertions.assertEquals(lara.position(), new Position(positionX, positionY));
      }
 
  }
