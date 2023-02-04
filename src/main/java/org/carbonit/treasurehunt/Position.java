@@ -5,10 +5,12 @@ import java.util.Objects;
 public class Position {
     private int x;
     private int y;
+    private boolean free;
 
-    public Position(int x, int y) {
+    public Position(int x, int y, boolean free) {
         this.x = x;
         this.y = y;
+        this.free = free;
     }
 
     public int getX() {
@@ -17,6 +19,10 @@ public class Position {
 
     public int getY() {
         return y;
+    }
+
+    public void setFree(boolean free) {
+        this.free = free;
     }
 
     @Override
@@ -30,5 +36,9 @@ public class Position {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+
+    public boolean isFree() {
+        return free;
     }
 }

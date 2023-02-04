@@ -9,6 +9,10 @@ public class Adventurer {
         this.position = position;
     }
 
+    public Position getPosition() {
+        return position;
+    }
+
     public boolean isConsistentPosition(int horizontalCellsNumber, int verticalCellsNumber) {
         return this.position.getX() >= 0
                 && this.position.getY() >= 0

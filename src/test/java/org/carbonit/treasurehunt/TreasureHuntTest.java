@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
          final int horizontalCellsNumber = 3;
          final int verticalCellsNumber = 4;
          final Land land = new Land(horizontalCellsNumber, verticalCellsNumber);
-         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY));
+         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY, true));
 
          // When
          land.withAdventurer(lara);
@@ -40,7 +40,7 @@ import org.junit.jupiter.api.Test;
          final int horizontalCellsNumber = 3;
          final int verticalCellsNumber = 4;
          final Land land = new Land(horizontalCellsNumber, verticalCellsNumber);
-         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY));
+         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY, true));
 
          // When
          land.withAdventurer(lara);
@@ -57,7 +57,7 @@ import org.junit.jupiter.api.Test;
          int positionY = 2;
 
          final Land land = new Land(3, 4);
-         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY));
+         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY, true));
 
          // When
          boolean isInside = land.isValidateLocation(lara);
@@ -74,13 +74,48 @@ import org.junit.jupiter.api.Test;
          int positionY = 5;
 
          final Land land = new Land(3, 4);
-         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY));
+         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY, true));
 
          // When
          boolean isInside = land.isValidateLocation(lara);
 
          //Then
          Assertions.assertFalse(isInside);
+     }
+
+     @Test
+     void shouldInitLandAndCheckIfAdventurerInitialPositionIsAvailable() {
+         //Given
+         String name = "Lara";
+         int positionX = 2;
+         int positionY = 2;
+         final Land land = new Land(3, 4);
+         Adventurer lara = new Adventurer(name, new Position(positionX, positionY, true));
+
+         // When
+         boolean isConsistent = land.isValidateLocation(lara);
+         //Then
+         Assertions.assertTrue(isConsistent);
+     }
+
+     @Test
+     void shouldInitLandAndTryInsertingTwoAdventurerInSamePosition() {
+
+         //Given
+         String lara = "Lara";
+         String bob = "Bob";
+         int positionX = 2;
+         int positionY = 2;
+         final Land land = new Land(3, 4);
+         Adventurer laraAdventure = new Adventurer(lara, new Position(positionX, positionY, true));
+         Adventurer bobAdventure = new Adventurer(bob, new Position(positionX, positionY, true));
+
+         // When
+         land.withAdventurer(laraAdventure);
+         boolean isConsistent = land.isValidateLocation(bobAdventure);
+
+         //Then
+         Assertions.assertFalse(isConsistent);
      }
 
  }
