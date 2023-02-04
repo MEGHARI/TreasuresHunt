@@ -56,10 +56,27 @@ import org.junit.jupiter.api.Test;
          final Adventurer lara = new Adventurer(name, positionX, positionY);
 
          // When
-         boolean isInside = land.isInside(lara);
+         boolean isInside = land.isValidateLocation(lara);
 
          //Then
          Assertions.assertTrue(isInside);
+     }
+
+     @Test
+     void shouldInitLandAndAdventurerWithExternalPosition() {
+         //Given
+         String name = "Lara";
+         int positionX = 8;
+         int positionY = 5;
+
+         final Land land = new Land(3, 4);
+         final Adventurer lara = new Adventurer(name, positionX, positionY);
+
+         // When
+         boolean isInside = land.isValidateLocation(lara);
+
+         //Then
+         Assertions.assertFalse(isInside);
      }
 
  }
