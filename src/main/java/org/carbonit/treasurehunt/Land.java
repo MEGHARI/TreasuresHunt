@@ -2,14 +2,14 @@ package org.carbonit.treasurehunt;
 
 public class Land {
 
-    private final int width;
-    private final int height;
+    private final int horizontalCellsNumber;
+    private final int verticalCellsNumber;
     private Adventurer adventurer;
 
-    public Land(int width, int height) {
+    public Land(int horizontalCellsNumber, int verticalCellsNumber) {
 
-        this.width = width;
-        this.height = height;
+        this.horizontalCellsNumber = horizontalCellsNumber;
+        this.verticalCellsNumber = verticalCellsNumber;
     }
 
     public void withAdventurer(Adventurer adventurer) {
@@ -17,7 +17,8 @@ public class Land {
         //
     }
 
-    public boolean isInside(Adventurer lara) {
+
+    public boolean isInside(Adventurer adventurer) {
         return true;
     }
 }
