@@ -12,6 +12,6 @@ public class Adventurer {
     }
 
     public Position position() {
-        return new Position(1, 1);
+        return new Position(x, y);
     }
 }
