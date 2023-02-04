@@ -14,5 +14,10 @@ public class Land {
 
     public void withAdventurer(Adventurer adventurer) {
         this.adventurer = adventurer;
+        //
+    }
+
+    public boolean isInside(Adventurer lara) {
+        return true;
     }
 }

@@ -45,4 +45,21 @@ import org.junit.jupiter.api.Test;
          Assertions.assertEquals(lara.position(), new Position(positionX, positionY));
      }
 
+     @Test
+     void shouldInitLandAndAdventurerWithInternalPosition() {
+         //Given
+         String name = "Lara";
+         int positionX = 0;
+         int positionY = 2;
+
+         final Land land = new Land(3, 4);
+         final Adventurer lara = new Adventurer(name, positionX, positionY);
+
+         // When
+         boolean isInside = land.isInside(lara);
+
+         //Then
+         Assertions.assertTrue(isInside);
+     }
+
  }
