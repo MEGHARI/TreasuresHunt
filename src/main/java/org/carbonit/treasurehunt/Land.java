@@ -19,10 +19,7 @@ public class Land {
 
 
     public boolean isValidateLocation(Adventurer adventurer) {
-        Position positionAdventurer = adventurer.position();
-        return positionAdventurer.getX() >= 0
-                && positionAdventurer.getY() >=0
-                && positionAdventurer.getX() < horizontalCellsNumber
-                && positionAdventurer.getY() < verticalCellsNumber;
+        return adventurer.isConsistentPosition(horizontalCellsNumber, verticalCellsNumber);
     }
+
 }

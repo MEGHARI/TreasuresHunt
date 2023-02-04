@@ -18,14 +18,16 @@ import org.junit.jupiter.api.Test;
          int positionX = 1;
          int positionY = 1;
 
-         final Land land = new Land(3, 4);
-         final Adventurer lara = new Adventurer(name, positionX, positionY);
+         final int horizontalCellsNumber = 3;
+         final int verticalCellsNumber = 4;
+         final Land land = new Land(horizontalCellsNumber, verticalCellsNumber);
+         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY));
 
          // When
          land.withAdventurer(lara);
 
          //Then
-         Assertions.assertEquals(lara.position(), new Position(positionX, positionY));
+         Assertions.assertTrue(lara.isConsistentPosition(horizontalCellsNumber, verticalCellsNumber));
      }
 
      @Test
@@ -35,14 +37,16 @@ import org.junit.jupiter.api.Test;
          int positionX = 0;
          int positionY = 2;
 
-         final Land land = new Land(3, 4);
-         final Adventurer lara = new Adventurer(name, positionX, positionY);
+         final int horizontalCellsNumber = 3;
+         final int verticalCellsNumber = 4;
+         final Land land = new Land(horizontalCellsNumber, verticalCellsNumber);
+         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY));
 
          // When
          land.withAdventurer(lara);
 
          //Then
-         Assertions.assertEquals(lara.position(), new Position(positionX, positionY));
+         Assertions.assertTrue(lara.isConsistentPosition(horizontalCellsNumber, verticalCellsNumber));
      }
 
      @Test
@@ -53,7 +57,7 @@ import org.junit.jupiter.api.Test;
          int positionY = 2;
 
          final Land land = new Land(3, 4);
-         final Adventurer lara = new Adventurer(name, positionX, positionY);
+         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY));
 
          // When
          boolean isInside = land.isValidateLocation(lara);
@@ -70,7 +74,7 @@ import org.junit.jupiter.api.Test;
          int positionY = 5;
 
          final Land land = new Land(3, 4);
-         final Adventurer lara = new Adventurer(name, positionX, positionY);
+         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY));
 
          // When
          boolean isInside = land.isValidateLocation(lara);

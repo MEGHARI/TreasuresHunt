@@ -2,16 +2,17 @@ package org.carbonit.treasurehunt;
 
 public class Adventurer {
     private final String name;
-    private int x;
-    private int y;
+    private Position position;
 
-    public Adventurer(String name, int x, int y) {
+    public Adventurer(String name, Position position) {
         this.name = name;
-        this.x = x;
-        this.y = y;
+        this.position = position;
     }
 
-    public Position position() {
-        return new Position(x, y);
+    public boolean isConsistentPosition(int horizontalCellsNumber, int verticalCellsNumber) {
+        return this.position.getX() >= 0
+                && this.position.getY() >= 0
+                && this.position.getX() < horizontalCellsNumber
+                && this.position.getY() < verticalCellsNumber;
     }
 }
