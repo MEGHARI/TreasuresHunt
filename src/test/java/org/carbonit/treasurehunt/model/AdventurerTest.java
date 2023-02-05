@@ -115,5 +115,37 @@ public class AdventurerTest {
 
     }
 
+    @Test
+    void shouldTestAdventurerWithOuestOrientationAndWithOneMovement() {
+
+        // GIVEN
+        Orientation orientation = Orientation.OUEST;
+        Position position = new Position(1, 3);
+        Position newPositionAfterMoved = new Position(0, 3);
+        // WHEN
+        adventurer = new Adventurer("Lara", new Position(1, 3), orientation, "A");
+        adventurer.move();
+        // THEN
+        Assertions.assertEquals("O", adventurer.getOrientation().getOrientation());
+        Assertions.assertEquals(newPositionAfterMoved, adventurer.getPosition());
+
+    }
+
+    @Test
+    void shouldTestAdventurerWithEastOrientationAndWithOneMovement() {
+
+        // GIVEN
+        Orientation orientation = Orientation.EAST;
+        Position position = new Position(1, 3);
+        Position newPositionAfterMoved = new Position(2, 3);
+        // WHEN
+        adventurer = new Adventurer("Lara", new Position(1, 3), orientation, "A");
+        adventurer.move();
+        // THEN
+        Assertions.assertEquals("E", adventurer.getOrientation().getOrientation());
+        Assertions.assertEquals(newPositionAfterMoved, adventurer.getPosition());
+
+    }
+
 
 }
