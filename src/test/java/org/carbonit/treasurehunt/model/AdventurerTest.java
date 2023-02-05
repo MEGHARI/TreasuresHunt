@@ -58,11 +58,13 @@ public class AdventurerTest {
 
         // GIVEN
         Orientation orientation = Orientation.SOUTH;
+        Position position = new Position(1, 3);
 
         // WHEN
         adventurer = new Adventurer("Lara", new Position(1, 3), orientation,"");
         // THEN
         Assertions.assertEquals("S", adventurer.getOrientation().getOrientation());
+        Assertions.assertEquals(position, adventurer.getPosition());
 
     }
 
