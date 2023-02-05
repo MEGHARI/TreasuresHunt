@@ -4,11 +4,12 @@ public class Adventurer {
     private final String name;
     private Position position;
     private Orientation orientation;
-
-    public Adventurer(String name, Position position, Orientation orientation) {
+    private String movingSuquences;
+    public Adventurer(String name, Position position, Orientation orientation, String movingSuquences) {
         this.name = name;
         this.position = position;
         this.orientation = orientation;
+        this.movingSuquences = "";
     }
 
     public Position getPosition() {

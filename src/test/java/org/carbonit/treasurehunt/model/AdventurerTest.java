@@ -14,7 +14,7 @@ public class AdventurerTest {
         Orientation orientation = Orientation.SOUTH;
 
          // WHEN
-        adventurer = new Adventurer("Lara",new Position(1,3),orientation);
+        adventurer = new Adventurer("Lara",new Position(1,3),orientation,"");
         // THEN
         Assertions.assertEquals("S",adventurer.getOrientation().getOrientation());
     }
@@ -26,7 +26,7 @@ public class AdventurerTest {
         Orientation orientation = Orientation.NORTH;
 
         // WHEN
-        adventurer = new Adventurer("Lara",new Position(1,3),orientation);
+        adventurer = new Adventurer("Lara",new Position(1,3),orientation,"");
         // THEN
         Assertions.assertEquals("N",adventurer.getOrientation().getOrientation());
     }
@@ -37,7 +37,7 @@ public class AdventurerTest {
         Orientation orientation = Orientation.OUEST;
 
         // WHEN
-        adventurer = new Adventurer("Lara", new Position(1, 3), orientation);
+        adventurer = new Adventurer("Lara", new Position(1, 3), orientation,"");
         // THEN
         Assertions.assertEquals("O", adventurer.getOrientation().getOrientation());
     }
@@ -49,9 +49,21 @@ public class AdventurerTest {
         Orientation orientation = Orientation.EAST;
 
         // WHEN
-        adventurer = new Adventurer("Lara", new Position(1, 3), orientation);
+        adventurer = new Adventurer("Lara", new Position(1, 3), orientation,"");
         // THEN
         Assertions.assertEquals("E", adventurer.getOrientation().getOrientation());
+    }
+    @Test
+    void shouldTestAdventurerWithSouthOrientationAndWithoutMoving(){
+
+        // GIVEN
+        Orientation orientation = Orientation.SOUTH;
+
+        // WHEN
+        adventurer = new Adventurer("Lara", new Position(1, 3), orientation,"");
+        // THEN
+        Assertions.assertEquals("S", adventurer.getOrientation().getOrientation());
+
     }
 
 
