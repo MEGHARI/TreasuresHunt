@@ -37,32 +37,50 @@ public class Adventurer {
     public void move() {
         for (int i = 0; i < this.movingSuquences.length(); i++) {
             if (PROGRESS == movingSuquences.charAt(i)) {
-                Position newPosition = switch (this.orientation) {
-                    case SOUTH -> new Position(this.getPosition().getX(), this.getPosition().getY() + 1);
-                    case NORTH -> new Position(this.getPosition().getX(), this.getPosition().getY() - 1);
-                    case WEST -> new Position(this.getPosition().getX() - 1, this.getPosition().getY());
-                    case EAST -> new Position(this.getPosition().getX() + 1, this.getPosition().getY());
-                    default -> this.getPosition();
-                };
-                this.setPosition(newPosition);
+                progress();
             } else if (LEFT_ORIENTATION == movingSuquences.charAt(i)) {
-                Orientation newOrientation = switch (this.orientation) {
-                    case SOUTH -> Orientation.EAST;
-                    case NORTH -> Orientation.WEST;
-                    case WEST -> Orientation.SOUTH;
-                    case EAST -> Orientation.NORTH;
-                };
-                this.orientation = newOrientation;
+                leftOrientation();
             } else if (RIGHT_ORIENTATION == movingSuquences.charAt(i)) {
-                Orientation newOrientation = switch (this.orientation) {
-                    case SOUTH -> Orientation.WEST;
-                    case NORTH -> Orientation.EAST;
-                    case WEST -> Orientation.NORTH;
-                    case EAST -> Orientation.SOUTH;
-                };
-                this.orientation = newOrientation;
+                rightOrientation();
             }
         }
 
+    }
+
+    /**
+     * L'orientation droite de l'aventurier.
+     */
+    private void rightOrientation() {
+        Orientation newOrientation = switch (this.orientation) {
+            case SOUTH -> Orientation.WEST;
+            case NORTH -> Orientation.EAST;
+            case WEST -> Orientation.NORTH;
+            case EAST -> Orientation.SOUTH;
+        };
+        this.orientation = newOrientation;
+    }
+
+    /**
+     * L'orientation gauche de l'aventurier.
+     */
+    private void leftOrientation() {
+        Orientation newOrientation = switch (this.orientation) {
+            case SOUTH -> Orientation.EAST;
+            case NORTH -> Orientation.WEST;
+            case WEST -> Orientation.SOUTH;
+            case EAST -> Orientation.NORTH;
+        };
+        this.orientation = newOrientation;
+    }
+
+    private void progress() {
+        Position newPosition = switch (this.orientation) {
+            case SOUTH -> new Position(this.getPosition().getX(), this.getPosition().getY() + 1);
+            case NORTH -> new Position(this.getPosition().getX(), this.getPosition().getY() - 1);
+            case WEST -> new Position(this.getPosition().getX() - 1, this.getPosition().getY());
+            case EAST -> new Position(this.getPosition().getX() + 1, this.getPosition().getY());
+            default -> this.getPosition();
+        };
+        this.setPosition(newPosition);
     }
 }

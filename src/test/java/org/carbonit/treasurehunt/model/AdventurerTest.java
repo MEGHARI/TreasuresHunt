@@ -93,7 +93,7 @@ public class AdventurerTest {
     }
 
     @Test
-    void shouldModifyPositionAfterProgessAndChangingOrientationToEAST() {
+    void shouldModifyPositionAfterProgressAndChangingOrientationToEAST() {
 
         // GIVEN
         Orientation orientation = Orientation.SOUTH;
@@ -121,6 +121,5 @@ public class AdventurerTest {
         Assertions.assertEquals(newPosition, adventurer.getPosition());
 
     }
-
 
 }
