@@ -76,10 +76,26 @@ public class AdventurerTest {
         Position position = new Position(1, 3);
 
         // WHEN
-        adventurer = new Adventurer("Lara", new Position(1, 3), orientation,"");
+        adventurer = new Adventurer("Lara", new Position(1, 3), orientation, "");
         // THEN
         Assertions.assertEquals("N", adventurer.getOrientation().getOrientation());
         Assertions.assertEquals(position, adventurer.getPosition());
+
+    }
+
+    @Test
+    void shouldTestAdventurerWithSouthOrientationAndWithOneMovement() {
+
+        // GIVEN
+        Orientation orientation = Orientation.SOUTH;
+        Position position = new Position(1, 3);
+        Position newPositionAfterMoved = new Position(1, 4);
+        // WHEN
+        adventurer = new Adventurer("Lara", new Position(1, 3), orientation, "A");
+        adventurer.move();
+        // THEN
+        Assertions.assertEquals("S", adventurer.getOrientation().getOrientation());
+        Assertions.assertEquals(newPositionAfterMoved, adventurer.getPosition());
 
     }
 

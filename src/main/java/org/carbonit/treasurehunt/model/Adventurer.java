@@ -3,17 +3,23 @@ package org.carbonit.treasurehunt.model;
 public class Adventurer {
     private final String name;
     private Position position;
+
+
     private Orientation orientation;
     private String movingSuquences;
+
     public Adventurer(String name, Position position, Orientation orientation, String movingSuquences) {
         this.name = name;
         this.position = position;
         this.orientation = orientation;
-        this.movingSuquences = "";
+        this.movingSuquences = movingSuquences;
     }
 
     public Position getPosition() {
         return position;
+    }
+    public void setPosition(Position position) {
+        this.position = position;
     }
 
     public boolean isConsistentPosition(int horizontalCellsNumber, int verticalCellsNumber) {
@@ -26,5 +32,10 @@ public class Adventurer {
 
     public Orientation getOrientation() {
         return orientation;
+    }
+
+    public void move() {
+        Position newPosition = new Position(this.getPosition().getX(), this.getPosition().getY() + 1);
+        this.setPosition(newPosition);
     }
 }
