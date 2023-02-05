@@ -3,11 +3,11 @@ package org.carbonit.treasurehunt.model;
 public class Adventurer {
     private final String name;
     private Position position;
-    private final String movement;
-    public Adventurer(String name, Position position, String movement) {
+    private final String orientation;
+    public Adventurer(String name, Position position, String orientation) {
         this.name = name;
         this.position = position;
-        this.movement = movement;
+        this.orientation = orientation;
     }
 
     public Position getPosition() {
@@ -21,7 +21,8 @@ public class Adventurer {
                 && this.position.getY() < verticalCellsNumber;
     }
 
-    public void move() {
 
+    public String getOrientation() {
+        return orientation;
     }
 }
