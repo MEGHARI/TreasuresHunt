@@ -92,5 +92,35 @@ public class AdventurerTest {
 
     }
 
+    @Test
+    void shouldModifyPositionAfterProgessAndChangingOrientationToEAST() {
+
+        // GIVEN
+        Orientation orientation = Orientation.SOUTH;
+        Position position = new Position(1, 3);
+        Position newPosition = new Position(2, 3);
+        // WHEN
+        adventurer = new Adventurer("Lara", position, orientation, "GA");
+        adventurer.move();
+        // THEN
+        Assertions.assertEquals(newPosition, adventurer.getPosition());
+
+    }
+
+    @Test
+    void shouldModifyPositionAfterProgessAndChangingOrientationToWEST() {
+
+        // GIVEN
+        Orientation orientation = Orientation.SOUTH;
+        Position position = new Position(1, 3);
+        Position newPosition = new Position(0, 3);
+        // WHEN
+        adventurer = new Adventurer("Lara", position, orientation, "DA");
+        adventurer.move();
+        // THEN
+        Assertions.assertEquals(newPosition, adventurer.getPosition());
+
+    }
+
 
 }
