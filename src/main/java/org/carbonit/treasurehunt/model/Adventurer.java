@@ -35,7 +35,11 @@ public class Adventurer {
     }
 
     public void move() {
-        Position newPosition = new Position(this.getPosition().getX(), this.getPosition().getY() + 1);
+        Position newPosition = switch (this.getOrientation()) {
+            case SOUTH -> new Position(this.getPosition().getX(), this.getPosition().getY() + 1);
+            case NORTH -> new Position(this.getPosition().getX(), this.getPosition().getY() - 1);
+            default -> this.getPosition();
+        };
         this.setPosition(newPosition);
     }
 }
