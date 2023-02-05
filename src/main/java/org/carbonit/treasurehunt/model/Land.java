@@ -1,11 +1,11 @@
-package org.carbonit.treasurehunt;
+package org.carbonit.treasurehunt.model;
 
 public class Land {
 
     private final int horizontalCellsNumber;
     private final int verticalCellsNumber;
     private Adventurer adventurer;
-    private Position[][] cells;
+    private Cell[][] cells;
 
     public Land(int horizontalCellsNumber, int verticalCellsNumber) {
 
@@ -15,10 +15,11 @@ public class Land {
     }
 
     private void init() {
-        cells = new Position[horizontalCellsNumber][verticalCellsNumber];
+
+        cells = new Cell[horizontalCellsNumber][verticalCellsNumber];
         for (int x = 0; x < horizontalCellsNumber; x++) {
             for (int y = 0; y < verticalCellsNumber; y++) {
-                cells[x][y] = new Position(x, y, true);
+                cells[x][y] = new Cell(true, new Position(x, y));
             }
         }
     }

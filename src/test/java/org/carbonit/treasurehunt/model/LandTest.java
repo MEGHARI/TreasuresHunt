@@ -1,10 +1,10 @@
-package org.carbonit.treasurehunt;
+package org.carbonit.treasurehunt.model;
 
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
- class TreasureHuntTest {
+ class LandTest {
 
      @Test
      void initTest() {
@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
          final int horizontalCellsNumber = 3;
          final int verticalCellsNumber = 4;
          final Land land = new Land(horizontalCellsNumber, verticalCellsNumber);
-         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY, true));
+         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY), "");
 
          // When
          land.withAdventurer(lara);
@@ -40,7 +40,7 @@ import org.junit.jupiter.api.Test;
          final int horizontalCellsNumber = 3;
          final int verticalCellsNumber = 4;
          final Land land = new Land(horizontalCellsNumber, verticalCellsNumber);
-         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY, true));
+         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY), "");
 
          // When
          land.withAdventurer(lara);
@@ -57,7 +57,7 @@ import org.junit.jupiter.api.Test;
          int positionY = 2;
 
          final Land land = new Land(3, 4);
-         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY, true));
+         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY), "");
 
          // When
          boolean isInside = land.isValidateLocation(lara);
@@ -74,7 +74,7 @@ import org.junit.jupiter.api.Test;
          int positionY = 5;
 
          final Land land = new Land(3, 4);
-         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY, true));
+         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY), "");
 
          // When
          boolean isInside = land.isValidateLocation(lara);
@@ -90,7 +90,7 @@ import org.junit.jupiter.api.Test;
          int positionX = 2;
          int positionY = 2;
          final Land land = new Land(3, 4);
-         Adventurer lara = new Adventurer(name, new Position(positionX, positionY, true));
+         Adventurer lara = new Adventurer(name, new Position(positionX, positionY), "");
 
          // When
          boolean isConsistent = land.isValidateLocation(lara);
@@ -107,8 +107,8 @@ import org.junit.jupiter.api.Test;
          int positionX = 2;
          int positionY = 2;
          final Land land = new Land(3, 4);
-         Adventurer laraAdventure = new Adventurer(lara, new Position(positionX, positionY, true));
-         Adventurer bobAdventure = new Adventurer(bob, new Position(positionX, positionY, true));
+         Adventurer laraAdventure = new Adventurer(lara, new Position(positionX, positionY), "");
+         Adventurer bobAdventure = new Adventurer(bob, new Position(positionX, positionY), "");
 
          // When
          land.withAdventurer(laraAdventure);
@@ -117,5 +117,8 @@ import org.junit.jupiter.api.Test;
          //Then
          Assertions.assertFalse(isConsistent);
      }
+
+
+
 
  }

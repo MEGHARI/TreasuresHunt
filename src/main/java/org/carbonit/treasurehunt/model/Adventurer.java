@@ -1,12 +1,13 @@
-package org.carbonit.treasurehunt;
+package org.carbonit.treasurehunt.model;
 
 public class Adventurer {
     private final String name;
     private Position position;
-
-    public Adventurer(String name, Position position) {
+    private final String movement;
+    public Adventurer(String name, Position position, String movement) {
         this.name = name;
         this.position = position;
+        this.movement = movement;
     }
 
     public Position getPosition() {
@@ -18,5 +19,9 @@ public class Adventurer {
                 && this.position.getY() >= 0
                 && this.position.getX() < horizontalCellsNumber
                 && this.position.getY() < verticalCellsNumber;
+    }
+
+    public void move() {
+
     }
 }
