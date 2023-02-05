@@ -3,8 +3,9 @@ package org.carbonit.treasurehunt.model;
 public class Adventurer {
     private final String name;
     private Position position;
-    private final String orientation;
-    public Adventurer(String name, Position position, String orientation) {
+    private Orientation orientation;
+
+    public Adventurer(String name, Position position, Orientation orientation) {
         this.name = name;
         this.position = position;
         this.orientation = orientation;
@@ -22,7 +23,7 @@ public class Adventurer {
     }
 
 
-    public String getOrientation() {
+    public Orientation getOrientation() {
         return orientation;
     }
 }

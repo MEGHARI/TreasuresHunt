@@ -8,15 +8,15 @@ public class AdventurerTest {
     Adventurer adventurer;
 
     @Test
-    void shouldInitAdventurerWithOrientation() {
+    void shouldInitAdventurerWithSouthOrientation() {
 
         // GIVEN
-        String orientation = "S";
+        Orientation orientation = Orientation.SOUTH;
 
          // WHEN
         adventurer = new Adventurer("Lara",new Position(1,3),orientation);
         // THEN
-        Assertions.assertEquals(orientation,adventurer.getOrientation());
+        Assertions.assertEquals("S",adventurer.getOrientation().getOrientation());
     }
 
 
