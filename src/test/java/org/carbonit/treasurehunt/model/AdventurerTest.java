@@ -37,11 +37,22 @@ public class AdventurerTest {
         Orientation orientation = Orientation.OUEST;
 
         // WHEN
-        adventurer = new Adventurer("Lara",new Position(1,3),orientation);
+        adventurer = new Adventurer("Lara", new Position(1, 3), orientation);
         // THEN
-        Assertions.assertEquals("O",adventurer.getOrientation().getOrientation());
+        Assertions.assertEquals("O", adventurer.getOrientation().getOrientation());
     }
 
+    @Test
+    void shouldInitAdventurerWithEastOrientation() {
+
+        // GIVEN
+        Orientation orientation = Orientation.EAST;
+
+        // WHEN
+        adventurer = new Adventurer("Lara", new Position(1, 3), orientation);
+        // THEN
+        Assertions.assertEquals("E", adventurer.getOrientation().getOrientation());
+    }
 
 
 }
