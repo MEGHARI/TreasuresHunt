@@ -17,15 +17,19 @@ public class AdventureUseCaseTest {
         int positionX = 0;
         int positionY = 0;
         final Land land = new Land(3, 4);
-        Adventurer laraAdventure = new Adventurer(lara, new Position(positionX, positionY), Orientation.SOUTH, "AAGADA");
+        Adventurer laraAdventure = new Adventurer(lara, new Position(positionX, positionY), Orientation.SOUTH);
+
         Position positionFinal = new Position(1, 3);
         AdventureUseCase adventureUseCase = new AdventureUseCase(land);
         // When
         land.addAdventurer(laraAdventure);
-        adventureUseCase.lunchMovementsAdventurerInLand(laraAdventure,land);
+        adventureUseCase.lunchMovementsAdventurerInLand(laraAdventure,"AAGADA");
         //Then
         Assertions.assertFalse(land.getCells()[1][3].isFree());
-        Assertions.assertEquals(laraAdventure.getPosition(),positionFinal);
+        Assertions.assertTrue(land.getCells()[0][0].isFree());
+        Assertions.assertEquals(laraAdventure.getPosition(), positionFinal);
 
     }
+
+
 }

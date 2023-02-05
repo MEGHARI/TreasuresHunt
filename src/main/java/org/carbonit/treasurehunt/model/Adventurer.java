@@ -7,13 +7,11 @@ public class Adventurer {
     private final String name;
     private Position position;
     private Orientation orientation;
-    private final String movingSequences;
 
-    public Adventurer(String name, Position position, Orientation orientation, String movingSequences) {
+    public Adventurer(String name, Position position, Orientation orientation) {
         this.name = name;
         this.position = position;
         this.orientation = orientation;
-        this.movingSequences = movingSequences;
     }
 
     public Position getPosition() {
@@ -34,18 +32,16 @@ public class Adventurer {
     /**
      * Methode qui permet à l'aventurier de se deplacer à l'interieur de la carte fournie.
      */
-    public void move() {
-        for (int i = 0; i < this.movingSequences.length(); i++) {
-            if (PROGRESS == movingSequences.charAt(i)) {
-                progress();
-            } else if (LEFT_ORIENTATION == movingSequences.charAt(i)) {
-                leftOrientation();
-            } else if (RIGHT_ORIENTATION == movingSequences.charAt(i)) {
-                rightOrientation();
-            }
+    public void move(Character action) {
+        if (PROGRESS == action) {
+            progress();
+        } else if (LEFT_ORIENTATION == action) {
+            leftOrientation();
+        } else if (RIGHT_ORIENTATION == action) {
+            rightOrientation();
         }
-
     }
+
 
     /**
      * L'orientation droite de l'aventurier.

@@ -16,7 +16,7 @@ public class AdventurerTest {
         Position position = new Position(1, 3);
 
         // WHEN
-        adventurer = new Adventurer("Lara", new Position(1, 3), orientation, "");
+        adventurer = new Adventurer("Lara", new Position(1, 3), orientation);
         // THEN
         Assertions.assertEquals(position, adventurer.getPosition());
 
@@ -29,8 +29,8 @@ public class AdventurerTest {
         Orientation orientation = Orientation.SOUTH;
         Position newPositionAfterMoved = new Position(1, 4);
         // WHEN
-        adventurer = new Adventurer("Lara", new Position(1, 3), orientation, "A");
-        adventurer.move();
+        adventurer = new Adventurer("Lara", new Position(1, 3), orientation);
+        adventurer.move('A');
         // THEN
         Assertions.assertEquals(newPositionAfterMoved, adventurer.getPosition());
 
@@ -43,8 +43,8 @@ public class AdventurerTest {
         Orientation orientation = Orientation.NORTH;
         Position newPositionAfterMoved = new Position(1, 2);
         // WHEN
-        adventurer = new Adventurer("Lara", new Position(1, 3), orientation, "A");
-        adventurer.move();
+        adventurer = new Adventurer("Lara", new Position(1, 3), orientation);
+        adventurer.move('A');
         // THEN
         Assertions.assertEquals(newPositionAfterMoved, adventurer.getPosition());
 
@@ -57,8 +57,8 @@ public class AdventurerTest {
         Orientation orientation = Orientation.WEST;
         Position newPositionAfterMoved = new Position(0, 3);
         // WHEN
-        adventurer = new Adventurer("Lara", new Position(1, 3), orientation, "A");
-        adventurer.move();
+        adventurer = new Adventurer("Lara", new Position(1, 3), orientation);
+        adventurer.move('A');
         // THEN
         Assertions.assertEquals(newPositionAfterMoved, adventurer.getPosition());
 
@@ -71,8 +71,8 @@ public class AdventurerTest {
         Orientation orientation = Orientation.EAST;
         Position newPositionAfterMoved = new Position(2, 3);
         // WHEN
-        adventurer = new Adventurer("Lara", new Position(1, 3), orientation, "A");
-        adventurer.move();
+        adventurer = new Adventurer("Lara", new Position(1, 3), orientation);
+        adventurer.move('A');
         // THEN
         Assertions.assertEquals(newPositionAfterMoved, adventurer.getPosition());
 
@@ -85,8 +85,8 @@ public class AdventurerTest {
         Orientation orientation = Orientation.SOUTH;
         Position position = new Position(1, 3);
         // WHEN
-        adventurer = new Adventurer("Lara", position, orientation, "G");
-        adventurer.move();
+        adventurer = new Adventurer("Lara", position, orientation);
+        adventurer.move('G');
         // THEN
         Assertions.assertEquals(position, adventurer.getPosition());
 
@@ -100,8 +100,9 @@ public class AdventurerTest {
         Position position = new Position(1, 3);
         Position newPosition = new Position(2, 3);
         // WHEN
-        adventurer = new Adventurer("Lara", position, orientation, "GA");
-        adventurer.move();
+        adventurer = new Adventurer("Lara", position, orientation);
+        adventurer.move('G');
+        adventurer.move('A');
         // THEN
         Assertions.assertEquals(newPosition, adventurer.getPosition());
 
@@ -115,8 +116,9 @@ public class AdventurerTest {
         Position position = new Position(1, 3);
         Position newPosition = new Position(0, 3);
         // WHEN
-        adventurer = new Adventurer("Lara", position, orientation, "DA");
-        adventurer.move();
+        adventurer = new Adventurer("Lara", position, orientation);
+        adventurer.move('D');
+        adventurer.move('A');
         // THEN
         Assertions.assertEquals(newPosition, adventurer.getPosition());
 

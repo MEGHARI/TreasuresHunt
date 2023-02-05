@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
          final int horizontalCellsNumber = 3;
          final int verticalCellsNumber = 4;
          final Land land = new Land(horizontalCellsNumber, verticalCellsNumber);
-         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY), Orientation.SOUTH,"");
+         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY), Orientation.SOUTH);
 
          // When
          land.addAdventurer(lara);
@@ -40,7 +40,7 @@ import org.junit.jupiter.api.Test;
          final int horizontalCellsNumber = 3;
          final int verticalCellsNumber = 4;
          final Land land = new Land(horizontalCellsNumber, verticalCellsNumber);
-         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY), Orientation.SOUTH,"");
+         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY), Orientation.SOUTH);
 
          // When
          land.addAdventurer(lara);
@@ -57,7 +57,7 @@ import org.junit.jupiter.api.Test;
          int positionY = 2;
 
          final Land land = new Land(3, 4);
-         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY), Orientation.SOUTH,"");
+         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY), Orientation.SOUTH);
 
          // When
          boolean isInside = land.isValidateLocation(lara);
@@ -74,7 +74,7 @@ import org.junit.jupiter.api.Test;
          int positionY = 5;
 
          final Land land = new Land(3, 4);
-         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY), Orientation.SOUTH,"");
+         final Adventurer lara = new Adventurer(name, new Position(positionX, positionY), Orientation.SOUTH);
 
          // When
          boolean isInside = land.isValidateLocation(lara);
@@ -90,7 +90,7 @@ import org.junit.jupiter.api.Test;
          int positionX = 2;
          int positionY = 2;
          final Land land = new Land(3, 4);
-         Adventurer lara = new Adventurer(name, new Position(positionX, positionY), Orientation.SOUTH,"");
+         Adventurer lara = new Adventurer(name, new Position(positionX, positionY), Orientation.SOUTH);
 
          // When
          boolean isConsistent = land.isValidateLocation(lara);
@@ -107,8 +107,8 @@ import org.junit.jupiter.api.Test;
          int positionX = 2;
          int positionY = 2;
          final Land land = new Land(3, 4);
-         Adventurer laraAdventure = new Adventurer(lara, new Position(positionX, positionY), Orientation.SOUTH, "");
-         Adventurer bobAdventure = new Adventurer(bob, new Position(positionX, positionY), Orientation.SOUTH, "");
+         Adventurer laraAdventure = new Adventurer(lara, new Position(positionX, positionY), Orientation.SOUTH);
+         Adventurer bobAdventure = new Adventurer(bob, new Position(positionX, positionY), Orientation.SOUTH);
 
          // When
          land.addAdventurer(laraAdventure);
