@@ -68,5 +68,20 @@ public class AdventurerTest {
 
     }
 
+    @Test
+    void shouldTestAdventurerWithNorthOrientationAndWithoutMoving(){
+
+        // GIVEN
+        Orientation orientation = Orientation.NORTH;
+        Position position = new Position(1, 3);
+
+        // WHEN
+        adventurer = new Adventurer("Lara", new Position(1, 3), orientation,"");
+        // THEN
+        Assertions.assertEquals("N", adventurer.getOrientation().getOrientation());
+        Assertions.assertEquals(position, adventurer.getPosition());
+
+    }
+
 
 }
