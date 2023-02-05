@@ -1,14 +1,14 @@
 package org.carbonit.treasurehunt.model;
 
 public enum Orientation {
-    SOUTH("S");
-    String south;
+    SOUTH("S"), NORTH("N");
+    String orientation;
 
-    private Orientation(String s) {
-        this.south = s;
+    private Orientation(String orientation) {
+        this.orientation = orientation;
     }
 
     public String getOrientation() {
-        return south;
+        return orientation;
     }
 }
