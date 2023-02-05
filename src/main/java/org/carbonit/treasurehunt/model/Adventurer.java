@@ -1,6 +1,7 @@
 package org.carbonit.treasurehunt.model;
 
 public class Adventurer {
+    private final static String PROGRESS = "A";
     private final String name;
     private Position position;
     private Orientation orientation;
@@ -33,7 +34,7 @@ public class Adventurer {
     }
 
     public void move() {
-        if ("A".equals(this.movingSuquences)) {
+        if (PROGRESS.equals(this.movingSuquences)) {
             Position newPosition = switch (this.getOrientation()) {
                 case SOUTH -> new Position(this.getPosition().getX(), this.getPosition().getY() + 1);
                 case NORTH -> new Position(this.getPosition().getX(), this.getPosition().getY() - 1);
