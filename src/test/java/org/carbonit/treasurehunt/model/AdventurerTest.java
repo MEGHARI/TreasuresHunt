@@ -143,4 +143,19 @@ public class AdventurerTest {
 
     }
 
+    @Test
+    void shouldNotMovingWhenModifyOnlyOrientation() {
+
+        // GIVEN
+        Orientation orientation = Orientation.SOUTH;
+        Position position = new Position(1, 3);
+        // WHEN
+        adventurer = new Adventurer("Lara", position, orientation, "G");
+        adventurer.move();
+        // THEN
+        Assertions.assertEquals(position, adventurer.getPosition());
+
+    }
+
+
 }

@@ -3,10 +3,8 @@ package org.carbonit.treasurehunt.model;
 public class Adventurer {
     private final String name;
     private Position position;
-
-
     private Orientation orientation;
-    private String movingSuquences;
+    private final String movingSuquences;
 
     public Adventurer(String name, Position position, Orientation orientation, String movingSuquences) {
         this.name = name;
@@ -35,13 +33,16 @@ public class Adventurer {
     }
 
     public void move() {
-        Position newPosition = switch (this.getOrientation()) {
-            case SOUTH -> new Position(this.getPosition().getX(), this.getPosition().getY() + 1);
-            case NORTH -> new Position(this.getPosition().getX(), this.getPosition().getY() - 1);
-            case OUEST -> new Position(this.getPosition().getX() - 1, this.getPosition().getY());
-            case EAST -> new Position(this.getPosition().getX() + 1, this.getPosition().getY());
-            default -> this.getPosition();
-        };
-        this.setPosition(newPosition);
+        if ("A".equals(this.movingSuquences)) {
+            Position newPosition = switch (this.getOrientation()) {
+                case SOUTH -> new Position(this.getPosition().getX(), this.getPosition().getY() + 1);
+                case NORTH -> new Position(this.getPosition().getX(), this.getPosition().getY() - 1);
+                case OUEST -> new Position(this.getPosition().getX() - 1, this.getPosition().getY());
+                case EAST -> new Position(this.getPosition().getX() + 1, this.getPosition().getY());
+                default -> this.getPosition();
+            };
+            this.setPosition(newPosition);
+        }
+
     }
 }
