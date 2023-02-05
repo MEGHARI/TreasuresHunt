@@ -29,13 +29,10 @@ public class Adventurer {
     }
 
 
-    public Orientation getOrientation() {
-        return orientation;
-    }
 
     public void move() {
         if (PROGRESS.equals(this.movingSuquences)) {
-            Position newPosition = switch (this.getOrientation()) {
+            Position newPosition = switch (this.orientation) {
                 case SOUTH -> new Position(this.getPosition().getX(), this.getPosition().getY() + 1);
                 case NORTH -> new Position(this.getPosition().getX(), this.getPosition().getY() - 1);
                 case OUEST -> new Position(this.getPosition().getX() - 1, this.getPosition().getY());
