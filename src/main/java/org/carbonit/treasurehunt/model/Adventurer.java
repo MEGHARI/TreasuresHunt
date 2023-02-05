@@ -35,7 +35,7 @@ public class Adventurer {
             Position newPosition = switch (this.orientation) {
                 case SOUTH -> new Position(this.getPosition().getX(), this.getPosition().getY() + 1);
                 case NORTH -> new Position(this.getPosition().getX(), this.getPosition().getY() - 1);
-                case OUEST -> new Position(this.getPosition().getX() - 1, this.getPosition().getY());
+                case WEST -> new Position(this.getPosition().getX() - 1, this.getPosition().getY());
                 case EAST -> new Position(this.getPosition().getX() + 1, this.getPosition().getY());
                 default -> this.getPosition();
             };

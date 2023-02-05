@@ -54,7 +54,7 @@ public class AdventurerTest {
     void shouldTestAdventurerWithOuestOrientationAndWithOneMovement() {
 
         // GIVEN
-        Orientation orientation = Orientation.OUEST;
+        Orientation orientation = Orientation.WEST;
         Position newPositionAfterMoved = new Position(0, 3);
         // WHEN
         adventurer = new Adventurer("Lara", new Position(1, 3), orientation, "A");

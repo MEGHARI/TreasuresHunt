@@ -1,7 +1,7 @@
 package org.carbonit.treasurehunt.model;
 
 public enum Orientation {
-    SOUTH("S"), NORTH("N"), OUEST("O"), EAST("E");
+    SOUTH("S"), NORTH("N"), WEST("O"), EAST("E");
     String orientation;
 
     private Orientation(String orientation) {
