@@ -108,7 +108,7 @@ public class AdventurerTest {
     }
 
     @Test
-    void shouldModifyPositionAfterProgessAndChangingOrientationToWEST() {
+    void shouldModifyPositionAfterProgressAndChangingOrientationToWEST() {
 
         // GIVEN
         Orientation orientation = Orientation.SOUTH;

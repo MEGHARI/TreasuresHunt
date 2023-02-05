@@ -7,13 +7,13 @@ public class Adventurer {
     private final String name;
     private Position position;
     private Orientation orientation;
-    private final String movingSuquences;
+    private final String movingSequences;
 
-    public Adventurer(String name, Position position, Orientation orientation, String movingSuquences) {
+    public Adventurer(String name, Position position, Orientation orientation, String movingSequences) {
         this.name = name;
         this.position = position;
         this.orientation = orientation;
-        this.movingSuquences = movingSuquences;
+        this.movingSequences = movingSequences;
     }
 
     public Position getPosition() {
@@ -35,12 +35,12 @@ public class Adventurer {
      * Methode qui permet à l'aventurier de se deplacer à l'interieur de la carte fournie.
      */
     public void move() {
-        for (int i = 0; i < this.movingSuquences.length(); i++) {
-            if (PROGRESS == movingSuquences.charAt(i)) {
+        for (int i = 0; i < this.movingSequences.length(); i++) {
+            if (PROGRESS == movingSequences.charAt(i)) {
                 progress();
-            } else if (LEFT_ORIENTATION == movingSuquences.charAt(i)) {
+            } else if (LEFT_ORIENTATION == movingSequences.charAt(i)) {
                 leftOrientation();
-            } else if (RIGHT_ORIENTATION == movingSuquences.charAt(i)) {
+            } else if (RIGHT_ORIENTATION == movingSequences.charAt(i)) {
                 rightOrientation();
             }
         }
@@ -56,6 +56,7 @@ public class Adventurer {
             case NORTH -> Orientation.EAST;
             case WEST -> Orientation.NORTH;
             case EAST -> Orientation.SOUTH;
+            default -> orientation;
         };
         this.orientation = newOrientation;
     }
@@ -69,6 +70,7 @@ public class Adventurer {
             case NORTH -> Orientation.WEST;
             case WEST -> Orientation.SOUTH;
             case EAST -> Orientation.NORTH;
+            default -> orientation;
         };
         this.orientation = newOrientation;
     }

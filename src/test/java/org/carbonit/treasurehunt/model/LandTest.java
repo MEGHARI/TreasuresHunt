@@ -24,7 +24,7 @@ import org.junit.jupiter.api.Test;
          final Adventurer lara = new Adventurer(name, new Position(positionX, positionY), Orientation.SOUTH,"");
 
          // When
-         land.withAdventurer(lara);
+         land.addAdventurer(lara);
 
          //Then
          Assertions.assertTrue(lara.isConsistentPosition(horizontalCellsNumber, verticalCellsNumber));
@@ -43,7 +43,7 @@ import org.junit.jupiter.api.Test;
          final Adventurer lara = new Adventurer(name, new Position(positionX, positionY), Orientation.SOUTH,"");
 
          // When
-         land.withAdventurer(lara);
+         land.addAdventurer(lara);
 
          //Then
          Assertions.assertTrue(lara.isConsistentPosition(horizontalCellsNumber, verticalCellsNumber));
@@ -107,11 +107,11 @@ import org.junit.jupiter.api.Test;
          int positionX = 2;
          int positionY = 2;
          final Land land = new Land(3, 4);
-         Adventurer laraAdventure = new Adventurer(lara, new Position(positionX, positionY), Orientation.SOUTH,"");
-         Adventurer bobAdventure = new Adventurer(bob, new Position(positionX, positionY), Orientation.SOUTH,"");
+         Adventurer laraAdventure = new Adventurer(lara, new Position(positionX, positionY), Orientation.SOUTH, "");
+         Adventurer bobAdventure = new Adventurer(bob, new Position(positionX, positionY), Orientation.SOUTH, "");
 
          // When
-         land.withAdventurer(laraAdventure);
+         land.addAdventurer(laraAdventure);
          boolean isConsistent = land.isValidateLocation(bobAdventure);
 
          //Then

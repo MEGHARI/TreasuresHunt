@@ -4,8 +4,8 @@ public class Land {
 
     private final int horizontalCellsNumber;
     private final int verticalCellsNumber;
-    private Adventurer adventurer;
     private Cell[][] cells;
+
 
     public Land(int horizontalCellsNumber, int verticalCellsNumber) {
 
@@ -15,7 +15,6 @@ public class Land {
     }
 
     private void init() {
-
         cells = new Cell[horizontalCellsNumber][verticalCellsNumber];
         for (int x = 0; x < horizontalCellsNumber; x++) {
             for (int y = 0; y < verticalCellsNumber; y++) {
@@ -24,8 +23,7 @@ public class Land {
         }
     }
 
-    public void withAdventurer(Adventurer adventurer) {
-        this.adventurer = adventurer;
+    public void addAdventurer(Adventurer adventurer) {
         cells[adventurer.getPosition().getX()][adventurer.getPosition().getX()].setFree(false);
     }
 
@@ -35,6 +33,10 @@ public class Land {
         return adventurer.isConsistentPosition(horizontalCellsNumber, verticalCellsNumber)
                 &&
                 cells[adventurer.getPosition().getX()][adventurer.getPosition().getY()].isFree();
+    }
+
+    public Cell[][] getCells() {
+        return cells;
     }
 
 }
