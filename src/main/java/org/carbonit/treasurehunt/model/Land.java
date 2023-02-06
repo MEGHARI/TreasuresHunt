@@ -42,6 +42,10 @@ public class Land {
             if (!isValidateLocation(adventurer)) {
                 adventurer.setPosition(oldPositionOfAdventurer);
 
+            } else {
+                if (this.getCells()[adventurer.getPosition().getX()][adventurer.getPosition().getY()].getTreasure() > 0) {
+                    adventurer.incrementTreasure();
+                }
             }
             updateStateCells(adventurer,oldPositionOfAdventurer);
         }
@@ -52,6 +56,7 @@ public class Land {
     private void updateStateCells(Adventurer adventurer, Position oldPositionOfAdventurer) {
         if (!adventurer.getPosition().equals(oldPositionOfAdventurer)) {
             this.getCells()[adventurer.getPosition().getX()][adventurer.getPosition().getY()].setFree(false);
+            this.getCells()[adventurer.getPosition().getX()][adventurer.getPosition().getY()].setTreasure(this.getCells()[adventurer.getPosition().getX()][adventurer.getPosition().getY()].getTreasure() - 1);
             this.getCells()[oldPositionOfAdventurer.getX()][oldPositionOfAdventurer.getY()].setFree(true);
         }
     }

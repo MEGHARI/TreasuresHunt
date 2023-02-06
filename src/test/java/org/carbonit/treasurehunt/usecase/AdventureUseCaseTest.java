@@ -74,6 +74,27 @@ public class AdventureUseCaseTest {
 
     }
 
+    @Test
+    void shouldMoveAdventurerLaraToCellOfPosition0_2WithMountainAt1_2AndConsumeOneTreasureAt0_1() {
+        //Given
+        String lara = "Lara";
+        int positionX = 0;
+        int positionY = 0;
+        final Land land = new Land(3, 3);
+        Adventurer laraAdventure = new Adventurer(lara, new Position(positionX, positionY), Orientation.SOUTH);
+        Position mountain = new Position(1, 2);
+        AdventureUseCase adventureUseCase = new AdventureUseCase(land);
+        // When
+        land.addMountain(mountain);
+        land.addAdventurer(laraAdventure);
+        land.getCells()[0][1].setTreasure(2);
+        adventureUseCase.lunchMovementsAdventurerInLand(laraAdventure, "AAGADA");
+        //Then
+        Assertions.assertEquals(laraAdventure.getTreasure(),1);
+        Assertions.assertEquals(land.getCells()[0][1].getTreasure(),1);
+
+    }
+
 
 
 }
