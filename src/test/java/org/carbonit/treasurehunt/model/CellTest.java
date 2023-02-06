@@ -11,7 +11,7 @@ public class CellTest {
         int numberTreasure = 2;
         Position position = new Position(1,2);
         //WHEN
-        Cell cell = new Cell(true,position,2);
+        Cell cell = new Cell(true,position,numberTreasure);
         //THEN
         Assertions.assertEquals(cell.getTreasure(),2);
     }
