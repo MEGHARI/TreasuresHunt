@@ -28,6 +28,26 @@ public class AdventureUseCaseTest {
         Assertions.assertFalse(land.getCells()[1][3].isFree());
         Assertions.assertTrue(land.getCells()[0][0].isFree());
         Assertions.assertEquals(laraAdventure.getPosition(), positionFinal);
+    }
+
+    @Test
+    void shouldMoveAdventurerLaraToCellOfPosition1_2AfterMoving() {
+        //Given
+        String lara = "Lara";
+        int positionX = 0;
+        int positionY = 0;
+        final Land land = new Land(3, 3);
+        Adventurer laraAdventure = new Adventurer(lara, new Position(positionX, positionY), Orientation.SOUTH);
+
+        Position positionFinal = new Position(1, 2);
+        AdventureUseCase adventureUseCase = new AdventureUseCase(land);
+        // When
+        land.addAdventurer(laraAdventure);
+        adventureUseCase.lunchMovementsAdventurerInLand(laraAdventure,"AAGADA");
+        //Then
+        Assertions.assertFalse(land.getCells()[1][2].isFree());
+        Assertions.assertTrue(land.getCells()[0][0].isFree());
+        Assertions.assertEquals(laraAdventure.getPosition(), positionFinal);
 
     }
 

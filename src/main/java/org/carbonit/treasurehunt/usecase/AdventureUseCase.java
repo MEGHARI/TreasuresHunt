@@ -13,15 +13,12 @@ public class AdventureUseCase {
 
     private Land land;
 
-    public void lunchMovementsAdventurerInLand(Adventurer adventure, String movingSequences) {
-        Position oldPositionOfAdventurer = new Position(adventure.getPosition().getX(), adventure.getPosition().getY());
-        land.addAdventurer(adventure);
-        for (int i = 0; i < movingSequences.length(); i++) {
-            adventure.move(movingSequences.charAt(i));
-        }
-        if (!adventure.getPosition().equals(oldPositionOfAdventurer)) {
-            land.getCells()[adventure.getPosition().getX()][adventure.getPosition().getY()].setFree(false);
-            land.getCells()[oldPositionOfAdventurer.getX()][oldPositionOfAdventurer.getY()].setFree(true);
-        }
+    public void lunchMovementsAdventurerInLand(Adventurer adventurer, String movingSequences) {
+        movingWithSequences(adventurer, movingSequences);
     }
+
+    private void movingWithSequences(Adventurer adventurer, String movingSequences) {
+        land.moveAdventurerInLand(adventurer, movingSequences);
+    }
+
 }

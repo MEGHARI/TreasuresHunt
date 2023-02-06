@@ -35,6 +35,29 @@ public class Land {
                 cells[adventurer.getPosition().getX()][adventurer.getPosition().getY()].isFree();
     }
 
+    public void moveAdventurerInLand(Adventurer adventurer, String movingSequences) {
+        for (int i = 0; i < movingSequences.length(); i++) {
+            Position oldPositionOfAdventurer = new Position(adventurer.getPosition().getX(), adventurer.getPosition().getY());
+            adventurer.move(movingSequences.charAt(i));
+            Position nextPositionOfAdventurer = adventurer.getPosition();
+            if (!(('A' == movingSequences.charAt(i) && isValidateLocation(adventurer)) || 'G' == movingSequences.charAt(i) || 'D' == movingSequences.charAt(i))) {
+                adventurer.setPosition(oldPositionOfAdventurer);
+
+            }
+            updateStateCells(adventurer,oldPositionOfAdventurer);
+        }
+
+
+    }
+
+    private void updateStateCells(Adventurer adventurer, Position oldPositionOfAdventurer) {
+        if (!adventurer.getPosition().equals(oldPositionOfAdventurer)) {
+            this.getCells()[adventurer.getPosition().getX()][adventurer.getPosition().getY()].setFree(false);
+            this.getCells()[oldPositionOfAdventurer.getX()][oldPositionOfAdventurer.getY()].setFree(true);
+        }
+    }
+
+
     public Cell[][] getCells() {
         return cells;
     }
