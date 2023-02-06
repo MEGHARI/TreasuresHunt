@@ -1,9 +1,6 @@
 package org.carbonit.treasurehunt.hexagon.usecase;
 
-import org.carbonit.treasurehunt.hexagon.model.Adventurer;
-import org.carbonit.treasurehunt.hexagon.model.Land;
-import org.carbonit.treasurehunt.hexagon.model.Orientation;
-import org.carbonit.treasurehunt.hexagon.model.Position;
+import org.carbonit.treasurehunt.hexagon.model.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -151,6 +148,21 @@ public class AdventureUseCaseTest {
         // THEN
         Assertions.assertFalse(land.getCells()[1][3].isFree());
         Assertions.assertFalse(land.getCells()[0][3].isFree());
+    }
+
+    @Test
+    void shouldInitAllLandWithAllTreasures() {
+        // GIVEN
+        Cell firstTreasure = new Cell(true,new Position(1,2),3);
+        Cell secondTreasure = new Cell(true,new Position(1,3),4);
+        List<Cell> cellsWithTreasures = List.of(firstTreasure,secondTreasure);
+        Land land = new Land(3, 4);
+        // WHEN
+        AdventureUseCase adventureUseCase = new AdventureUseCase(land);
+        adventureUseCase.initLandWithTreasure(cellsWithTreasures);
+        // THEN
+        Assertions.assertEquals(3,land.getCells()[1][2].getTreasure());
+        Assertions.assertEquals(4,land.getCells()[1][3].getTreasure());
     }
 
 

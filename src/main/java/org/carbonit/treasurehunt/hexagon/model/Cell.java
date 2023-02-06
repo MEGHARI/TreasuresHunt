@@ -7,6 +7,10 @@ public class Cell {
     private boolean isFree;
     private int treasure;
 
+    public Position getPosition() {
+        return position;
+    }
+
     public Cell(boolean isFree, Position position, int treasure) {
         this.position = position;
         this.isFree = isFree;

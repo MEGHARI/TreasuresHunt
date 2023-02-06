@@ -1,6 +1,7 @@
 package org.carbonit.treasurehunt.hexagon.usecase;
 
 import org.carbonit.treasurehunt.hexagon.model.Adventurer;
+import org.carbonit.treasurehunt.hexagon.model.Cell;
 import org.carbonit.treasurehunt.hexagon.model.Land;
 import org.carbonit.treasurehunt.hexagon.model.Position;
 import org.carbonit.treasurehunt.hexagon.ports.ITreasuresDataReader;
@@ -26,5 +27,11 @@ public class AdventureUseCase {
 
     public void initLandWithAdventurer(List<Adventurer> adventurers) {
         adventurers.forEach(land::addAdventurer);
+    }
+
+    public void initLandWithTreasure(List<Cell> cellsWithTreasures) {
+        cellsWithTreasures.forEach(cell ->
+                land.getCells()[cell.getPosition().getX()][cell.getPosition().getY()] = cell
+        );
     }
 }
