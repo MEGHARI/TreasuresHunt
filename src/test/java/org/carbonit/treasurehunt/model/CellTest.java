@@ -23,8 +23,20 @@ public class CellTest {
         Position position = new Position(1,2);
         //WHEN
         Cell cell = new Cell(true,position,numberTreasure);
-        cell.setTreasure(cell.getTreasure()-1);
+        cell.substractTreasure();
         //THEN
         Assertions.assertEquals(cell.getTreasure(),1);
+    }
+
+    @Test
+    public void shouldNotReturnNegativeNumberTreasure() {
+        // GIVEN
+        int numberTreasure = 0;
+        Position position = new Position(1,2);
+        //WHEN
+        Cell cell = new Cell(true,position,numberTreasure);
+        cell.substractTreasure();
+        //THEN
+        Assertions.assertEquals(cell.getTreasure(),0);
     }
 }

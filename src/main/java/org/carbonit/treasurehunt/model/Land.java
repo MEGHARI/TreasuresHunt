@@ -56,7 +56,7 @@ public class Land {
     private void updateStateCells(Adventurer adventurer, Position oldPositionOfAdventurer) {
         if (!adventurer.getPosition().equals(oldPositionOfAdventurer)) {
             this.getCells()[adventurer.getPosition().getX()][adventurer.getPosition().getY()].setFree(false);
-            this.getCells()[adventurer.getPosition().getX()][adventurer.getPosition().getY()].setTreasure(this.getCells()[adventurer.getPosition().getX()][adventurer.getPosition().getY()].getTreasure() - 1);
+            this.getCells()[adventurer.getPosition().getX()][adventurer.getPosition().getY()].substractTreasure();
             this.getCells()[oldPositionOfAdventurer.getX()][oldPositionOfAdventurer.getY()].setFree(true);
         }
     }
