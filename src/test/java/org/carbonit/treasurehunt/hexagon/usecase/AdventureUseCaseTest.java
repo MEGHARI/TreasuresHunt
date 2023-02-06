@@ -138,5 +138,20 @@ public class AdventureUseCaseTest {
         Assertions.assertFalse(land.getCells()[2][1].isFree());
     }
 
+    @Test
+    void shouldInitAllLandWithAllUsers() {
+        // GIVEN
+        Adventurer laraAdventure = new Adventurer("Lara", new Position(1, 3), Orientation.SOUTH);
+        Adventurer bobAdventure = new Adventurer("Bob", new Position(0, 3), Orientation.SOUTH);
+        List<Adventurer> adventurers = List.of(laraAdventure,bobAdventure);
+        Land land = new Land(3, 4);
+        // WHEN
+        AdventureUseCase adventureUseCase = new AdventureUseCase(land);
+        adventureUseCase.initLandWithAdventurer(adventurers);
+        // THEN
+        Assertions.assertFalse(land.getCells()[1][3].isFree());
+        Assertions.assertFalse(land.getCells()[0][3].isFree());
+    }
+
 
 }

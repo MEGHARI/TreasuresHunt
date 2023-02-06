@@ -24,7 +24,7 @@ public class Land {
     }
 
     public void addAdventurer(Adventurer adventurer) {
-        cells[adventurer.getPosition().getX()][adventurer.getPosition().getX()].setFree(false);
+        cells[adventurer.getPosition().getX()][adventurer.getPosition().getY()].setFree(false);
     }
 
 

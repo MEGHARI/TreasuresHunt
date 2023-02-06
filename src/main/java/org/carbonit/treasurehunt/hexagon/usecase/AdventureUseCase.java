@@ -27,4 +27,8 @@ public class AdventureUseCase {
     public void initLandWithMountains(List<Position> mountains) {
         mountains.forEach(land::addMountain);
     }
+
+    public void initLandWithAdventurer(List<Adventurer> adventurers) {
+        adventurers.forEach(land::addAdventurer);
+    }
 }
