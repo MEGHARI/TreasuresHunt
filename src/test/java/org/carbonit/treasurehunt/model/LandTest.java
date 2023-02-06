@@ -135,6 +135,27 @@ import org.junit.jupiter.api.Test;
          Assertions.assertFalse(land.getCells()[mountain.getX()][mountain.getY()].isFree());
      }
 
+     @Test
+     void shouldInitLandWithMountainAt1_2AndAdventurerAt2_2() {
+         //Given
+         int mountainPositionX = 1;
+         int mountainPositionY = 2;
+         int adventurerPositionX = 2;
+         int adventurerPositionY = 2;
+         Position mountain = new Position(mountainPositionX,mountainPositionY);
+         Adventurer lara = new Adventurer("Lara",new Position(adventurerPositionX,adventurerPositionY),Orientation.SOUTH);
+         final int horizontalCellsNumber = 3;
+         final int verticalCellsNumber = 4;
+         final Land land = new Land(horizontalCellsNumber, verticalCellsNumber);
+
+         // When
+         land.addMountain(mountain);
+         land.addAdventurer(lara);
+         //Then
+         Assertions.assertFalse(land.getCells()[mountain.getX()][mountain.getY()].isFree());
+         Assertions.assertFalse(land.getCells()[lara.getPosition().getX()][lara.getPosition().getY()].isFree());
+     }
+
 
 
 
