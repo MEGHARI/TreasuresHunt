@@ -39,4 +39,8 @@ public class Cell {
     public int getTreasure() {
         return treasure;
     }
+
+    public void setTreasure(int i) {
+        this.treasure = i;
+    }
 }
