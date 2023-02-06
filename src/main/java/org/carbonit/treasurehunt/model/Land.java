@@ -39,8 +39,7 @@ public class Land {
         for (int i = 0; i < movingSequences.length(); i++) {
             Position oldPositionOfAdventurer = new Position(adventurer.getPosition().getX(), adventurer.getPosition().getY());
             adventurer.move(movingSequences.charAt(i));
-            Position nextPositionOfAdventurer = adventurer.getPosition();
-            if (!(('A' == movingSequences.charAt(i) && isValidateLocation(adventurer)) || 'G' == movingSequences.charAt(i) || 'D' == movingSequences.charAt(i))) {
+            if (!isValidateLocation(adventurer)) {
                 adventurer.setPosition(oldPositionOfAdventurer);
 
             }
