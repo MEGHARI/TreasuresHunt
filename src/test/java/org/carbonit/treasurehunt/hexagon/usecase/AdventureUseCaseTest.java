@@ -1,11 +1,13 @@
-package org.carbonit.treasurehunt.usecase;
+package org.carbonit.treasurehunt.hexagon.usecase;
 
-import org.carbonit.treasurehunt.model.Adventurer;
-import org.carbonit.treasurehunt.model.Land;
-import org.carbonit.treasurehunt.model.Orientation;
-import org.carbonit.treasurehunt.model.Position;
+import org.carbonit.treasurehunt.hexagon.model.Adventurer;
+import org.carbonit.treasurehunt.hexagon.model.Land;
+import org.carbonit.treasurehunt.hexagon.model.Orientation;
+import org.carbonit.treasurehunt.hexagon.model.Position;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
 
 public class AdventureUseCaseTest {
 
@@ -114,13 +116,27 @@ public class AdventureUseCaseTest {
         land.getCells()[1][3].setTreasure(3);
         adventureUseCase.lunchMovementsAdventurerInLand(laraAdventure, "AADADAGGA");
         //Then
-        Assertions.assertEquals(laraAdventure.getPosition(),new Position(0,3));
-        Assertions.assertEquals(laraAdventure.getTreasure(),3);
-        Assertions.assertEquals(land.getCells()[0][3].getTreasure(),0);
-        Assertions.assertEquals(land.getCells()[1][3].getTreasure(),2);
+        Assertions.assertEquals(laraAdventure.getPosition(), new Position(0, 3));
+        Assertions.assertEquals(laraAdventure.getTreasure(), 3);
+        Assertions.assertEquals(land.getCells()[0][3].getTreasure(), 0);
+        Assertions.assertEquals(land.getCells()[1][3].getTreasure(), 2);
 
     }
 
+    @Test
+    void shouldInitAllLandWithAllMountains() {
+        // GIVEN
+        Position firstMountain = new Position(1, 0);
+        Position secondMountain = new Position(2, 1);
+        List<Position> mountains = List.of(firstMountain, secondMountain);
+        Land land = new Land(3, 4);
+        // WHEN
+        AdventureUseCase adventureUseCase = new AdventureUseCase(land);
+        adventureUseCase.initLandWithMountains(mountains);
+        // THEN
+        Assertions.assertFalse(land.getCells()[1][0].isFree());
+        Assertions.assertFalse(land.getCells()[2][1].isFree());
+    }
 
 
 }

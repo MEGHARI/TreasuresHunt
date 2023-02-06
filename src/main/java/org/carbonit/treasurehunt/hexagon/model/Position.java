@@ -1,4 +1,4 @@
-package org.carbonit.treasurehunt.model;
+package org.carbonit.treasurehunt.hexagon.model;
 
 import java.util.Objects;
 

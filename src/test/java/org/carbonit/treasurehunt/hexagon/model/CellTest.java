@@ -1,4 +1,4 @@
-package org.carbonit.treasurehunt.model;
+package org.carbonit.treasurehunt.hexagon.model;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

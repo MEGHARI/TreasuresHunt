@@ -1,4 +1,4 @@
-package org.carbonit.treasurehunt.model;
+package org.carbonit.treasurehunt.hexagon.model;
 
 public enum Orientation {
     SOUTH("S"), NORTH("N"), WEST("O"), EAST("E");
