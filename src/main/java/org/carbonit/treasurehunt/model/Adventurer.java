@@ -7,6 +7,7 @@ public class Adventurer {
     private final String name;
     private Position position;
     private Orientation orientation;
+    private int treasure = 0;
 
     public Adventurer(String name, Position position, Orientation orientation) {
         this.name = name;
@@ -80,5 +81,13 @@ public class Adventurer {
             default -> this.getPosition();
         };
         this.setPosition(newPosition);
+    }
+
+    public void incrementTreasure() {
+        this.treasure ++;
+    }
+
+    public int getTreasure() {
+        return this.treasure;
     }
 }

@@ -124,4 +124,18 @@ public class AdventurerTest {
 
     }
 
+    @Test
+    void shouldReturnOneTreasuresConsumedByAdventurerLara() {
+
+        // GIVEN
+        Orientation orientation = Orientation.SOUTH;
+        Position position = new Position(1, 3);
+        // WHEN
+        adventurer = new Adventurer("Lara", position, orientation);
+        adventurer.incrementTreasure();
+        // THEN
+        Assertions.assertEquals(1, adventurer.getTreasure());
+
+    }
+
 }
