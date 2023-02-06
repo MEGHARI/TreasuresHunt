@@ -62,4 +62,7 @@ public class Land {
         return cells;
     }
 
+    public void addMountain(Position mountain) {
+        cells[mountain.getX()][mountain.getY()].setFree(false);
+    }
 }

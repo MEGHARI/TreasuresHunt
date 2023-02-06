@@ -118,6 +118,23 @@ import org.junit.jupiter.api.Test;
          Assertions.assertFalse(isConsistent);
      }
 
+     @Test
+     void shouldInitLandWithMountainAt1_2() {
+         //Given
+         int positionX = 1;
+         int positionY = 2;
+         Position mountain = new Position(positionX,positionY);
+         final int horizontalCellsNumber = 3;
+         final int verticalCellsNumber = 4;
+         final Land land = new Land(horizontalCellsNumber, verticalCellsNumber);
+
+         // When
+         land.addMountain(mountain);
+
+         //Then
+         Assertions.assertFalse(land.getCells()[mountain.getX()][mountain.getY()].isFree());
+     }
+
 
 
 
