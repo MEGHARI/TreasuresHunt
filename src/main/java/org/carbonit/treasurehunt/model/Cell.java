@@ -5,10 +5,12 @@ import java.util.Objects;
 public class Cell {
     private final Position position;
     private boolean isFree;
+    private int treasure;
 
-    public Cell(boolean isFree, Position position) {
-       this.position = position;
+    public Cell(boolean isFree, Position position, int treasure) {
+        this.position = position;
         this.isFree = isFree;
+        this.treasure = treasure;
     }
 
     @Override
@@ -32,5 +34,9 @@ public class Cell {
 
     public boolean isFree() {
         return isFree;
+    }
+
+    public int getTreasure() {
+        return treasure;
     }
 }

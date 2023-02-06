@@ -18,7 +18,7 @@ public class Land {
         cells = new Cell[horizontalCellsNumber][verticalCellsNumber];
         for (int x = 0; x < horizontalCellsNumber; x++) {
             for (int y = 0; y < verticalCellsNumber; y++) {
-                cells[x][y] = new Cell(true, new Position(x, y));
+                cells[x][y] = new Cell(true, new Position(x, y),0);
             }
         }
     }
