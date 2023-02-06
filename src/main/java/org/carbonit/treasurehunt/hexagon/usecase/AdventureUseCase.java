@@ -17,10 +17,6 @@ public class AdventureUseCase {
     private Land land;
 
     public void lunchMovementsAdventurerInLand(Adventurer adventurer, String movingSequences) {
-        movingWithSequences(adventurer, movingSequences);
-    }
-
-    private void movingWithSequences(Adventurer adventurer, String movingSequences) {
         land.moveAdventurerInLand(adventurer, movingSequences);
     }
 
