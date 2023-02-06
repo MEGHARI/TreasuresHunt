@@ -2,7 +2,6 @@ package org.carbonit.treasurehunt.usecase;
 
 import org.carbonit.treasurehunt.model.Adventurer;
 import org.carbonit.treasurehunt.model.Land;
-import org.carbonit.treasurehunt.model.Position;
 
 public class AdventureUseCase {
 
