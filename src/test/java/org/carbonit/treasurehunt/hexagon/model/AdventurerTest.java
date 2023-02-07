@@ -12,7 +12,7 @@ public class AdventurerTest {
     void shouldTestAdventurerWithNorthOrientationAndWithoutMoving(){
 
         // GIVEN
-        Orientation orientation = Orientation.NORTH;
+        Orientation orientation = Orientation.N;
         Position position = new Position(1, 3);
 
         // WHEN
@@ -26,7 +26,7 @@ public class AdventurerTest {
     void shouldTestAdventurerWithSouthOrientationAndWithOneMovement() {
 
         // GIVEN
-        Orientation orientation = Orientation.SOUTH;
+        Orientation orientation = Orientation.S;
         Position newPositionAfterMoved = new Position(1, 4);
         // WHEN
         adventurer = new Adventurer("Lara", new Position(1, 3), orientation);
@@ -40,7 +40,7 @@ public class AdventurerTest {
     void shouldTestAdventurerWithNorthOrientationAndWithOneMovement() {
 
         // GIVEN
-        Orientation orientation = Orientation.NORTH;
+        Orientation orientation = Orientation.N;
         Position newPositionAfterMoved = new Position(1, 2);
         // WHEN
         adventurer = new Adventurer("Lara", new Position(1, 3), orientation);
@@ -54,7 +54,7 @@ public class AdventurerTest {
     void shouldTestAdventurerWithOuestOrientationAndWithOneMovement() {
 
         // GIVEN
-        Orientation orientation = Orientation.WEST;
+        Orientation orientation = Orientation.W;
         Position newPositionAfterMoved = new Position(0, 3);
         // WHEN
         adventurer = new Adventurer("Lara", new Position(1, 3), orientation);
@@ -68,7 +68,7 @@ public class AdventurerTest {
     void shouldTestAdventurerWithEastOrientationAndWithOneMovement() {
 
         // GIVEN
-        Orientation orientation = Orientation.EAST;
+        Orientation orientation = Orientation.E;
         Position newPositionAfterMoved = new Position(2, 3);
         // WHEN
         adventurer = new Adventurer("Lara", new Position(1, 3), orientation);
@@ -82,7 +82,7 @@ public class AdventurerTest {
     void shouldNotMovingWhenModifyOnlyOrientation() {
 
         // GIVEN
-        Orientation orientation = Orientation.SOUTH;
+        Orientation orientation = Orientation.S;
         Position position = new Position(1, 3);
         // WHEN
         adventurer = new Adventurer("Lara", position, orientation);
@@ -96,7 +96,7 @@ public class AdventurerTest {
     void shouldModifyPositionAfterProgressAndChangingOrientationToEAST() {
 
         // GIVEN
-        Orientation orientation = Orientation.SOUTH;
+        Orientation orientation = Orientation.S;
         Position position = new Position(1, 3);
         Position newPosition = new Position(2, 3);
         // WHEN
@@ -112,7 +112,7 @@ public class AdventurerTest {
     void shouldModifyPositionAfterProgressAndChangingOrientationToWEST() {
 
         // GIVEN
-        Orientation orientation = Orientation.SOUTH;
+        Orientation orientation = Orientation.S;
         Position position = new Position(1, 3);
         Position newPosition = new Position(0, 3);
         // WHEN
@@ -128,7 +128,7 @@ public class AdventurerTest {
     void shouldReturnOneTreasuresConsumedByAdventurerLara() {
 
         // GIVEN
-        Orientation orientation = Orientation.SOUTH;
+        Orientation orientation = Orientation.S;
         Position position = new Position(1, 3);
         // WHEN
         adventurer = new Adventurer("Lara", position, orientation);

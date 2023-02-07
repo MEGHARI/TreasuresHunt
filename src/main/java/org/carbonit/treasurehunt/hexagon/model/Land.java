@@ -2,8 +2,8 @@ package org.carbonit.treasurehunt.hexagon.model;
 
 public class Land {
 
-    private final int horizontalCellsNumber;
-    private final int verticalCellsNumber;
+    public final int horizontalCellsNumber;
+    public final int verticalCellsNumber;
     private Cell[][] cells;
 
 

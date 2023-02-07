@@ -1,7 +1,7 @@
-package org.carbonit.treasurehunt.adapter;
+package org.carbonit.treasurehunt.adapters.secondary;
 
 import org.carbonit.treasurehunt.hexagon.model.*;
-import org.carbonit.treasurehunt.hexagon.ports.ITreasuresDataReader;
+import org.carbonit.treasurehunt.hexagon.ports.secondary.ITreasuresDataReader;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -22,15 +22,6 @@ public class TreasureDataReader implements ITreasuresDataReader {
     private List<Cell> cellsWithTreasures = new ArrayList<>();
     private List<String> adventurersMovementSequences = new ArrayList<>();
     private Land land;
-    public void parseFile(String fileName) {
-        try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
-            stream.forEach(this::parseLine);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
 
     @Override
     public Land getLand() {
@@ -57,11 +48,20 @@ public class TreasureDataReader implements ITreasuresDataReader {
         return adventurersMovementSequences;
     }
 
+    public void parseFile(String fileName) {
+        try (Stream<String> stream = Files.lines(Paths.get(fileName)).filter(line -> !line.startsWith("#"))) {
+            stream.forEach(this::parseLine);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     private void parseLine(String line) {
         if (line.startsWith(LAND_PREFIX)) {
             int horizontalCellsNumber = Integer.parseInt(line.split(REGEX_SEPARATOR)[1]);
             int verticalCellsNumber = Integer.parseInt(line.split(REGEX_SEPARATOR)[2]);
-            this.land = new Land(horizontalCellsNumber,verticalCellsNumber);
+            this.land = new Land(horizontalCellsNumber, verticalCellsNumber);
         } else if (line.startsWith(Mountain_PREFIX)) {
             int mountainPositionX = Integer.parseInt(line.split(REGEX_SEPARATOR)[1]);
             int mountainPositionY = Integer.parseInt(line.split(REGEX_SEPARATOR)[2]);

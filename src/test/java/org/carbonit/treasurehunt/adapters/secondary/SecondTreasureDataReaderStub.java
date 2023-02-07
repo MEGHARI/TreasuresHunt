@@ -1,16 +1,16 @@
-package org.carbonit.treasurehunt.adapter;
+package org.carbonit.treasurehunt.adapters.secondary;
 
 import org.carbonit.treasurehunt.hexagon.model.*;
-import org.carbonit.treasurehunt.hexagon.ports.ITreasuresDataReader;
+import org.carbonit.treasurehunt.hexagon.ports.secondary.ITreasuresDataReader;
 
 import java.util.List;
 
-public class FirstTreasureDataReaderStub implements ITreasuresDataReader {
+public class SecondTreasureDataReaderStub implements ITreasuresDataReader {
 
 
     @Override
     public Land getLand() {
-        return new Land(3,4);
+        return new Land(3,3);
     }
 
     @Override
@@ -20,7 +20,7 @@ public class FirstTreasureDataReaderStub implements ITreasuresDataReader {
 
     @Override
     public List<Adventurer> getAdventurers() {
-        return List.of(new Adventurer("Lara",new Position(0,0), Orientation.SOUTH));
+        return List.of(new Adventurer("Lara",new Position(0,0), Orientation.S));
     }
 
     @Override
@@ -31,5 +31,10 @@ public class FirstTreasureDataReaderStub implements ITreasuresDataReader {
     @Override
     public List<String> getAdventurersMovementSequences() {
         return List.of("AAGADA");
+    }
+
+    @Override
+    public void parseFile(String fileName) {
+        return;
     }
 }

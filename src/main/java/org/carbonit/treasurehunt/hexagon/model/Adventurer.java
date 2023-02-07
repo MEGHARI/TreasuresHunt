@@ -6,6 +6,9 @@ public class Adventurer {
     private static final Character RIGHT_ORIENTATION = 'D';
     private final String name;
     private Position position;
+
+
+
     private Orientation orientation;
     private int treasure = 0;
 
@@ -49,10 +52,10 @@ public class Adventurer {
      */
     private void rightOrientation() {
         Orientation newOrientation = switch (this.orientation) {
-            case SOUTH -> Orientation.WEST;
-            case NORTH -> Orientation.EAST;
-            case WEST -> Orientation.NORTH;
-            case EAST -> Orientation.SOUTH;
+            case S -> Orientation.W;
+            case N -> Orientation.E;
+            case W -> Orientation.N;
+            case E -> Orientation.S;
             default -> orientation;
         };
         this.orientation = newOrientation;
@@ -63,10 +66,10 @@ public class Adventurer {
      */
     private void leftOrientation() {
         Orientation newOrientation = switch (this.orientation) {
-            case SOUTH -> Orientation.EAST;
-            case NORTH -> Orientation.WEST;
-            case WEST -> Orientation.SOUTH;
-            case EAST -> Orientation.NORTH;
+            case S -> Orientation.E;
+            case N -> Orientation.W;
+            case W -> Orientation.S;
+            case E -> Orientation.N;
             default -> orientation;
         };
         this.orientation = newOrientation;
@@ -74,20 +77,27 @@ public class Adventurer {
 
     private void progress() {
         Position newPosition = switch (this.orientation) {
-            case SOUTH -> new Position(this.getPosition().getX(), this.getPosition().getY() + 1);
-            case NORTH -> new Position(this.getPosition().getX(), this.getPosition().getY() - 1);
-            case WEST -> new Position(this.getPosition().getX() - 1, this.getPosition().getY());
-            case EAST -> new Position(this.getPosition().getX() + 1, this.getPosition().getY());
+            case S -> new Position(this.getPosition().getX(), this.getPosition().getY() + 1);
+            case N -> new Position(this.getPosition().getX(), this.getPosition().getY() - 1);
+            case W -> new Position(this.getPosition().getX() - 1, this.getPosition().getY());
+            case E -> new Position(this.getPosition().getX() + 1, this.getPosition().getY());
             default -> this.getPosition();
         };
         this.setPosition(newPosition);
     }
 
     public void incrementTreasure() {
-        this.treasure ++;
+        this.treasure++;
     }
 
     public int getTreasure() {
         return this.treasure;
+    }
+
+    public String getName() {
+        return name;
+    }
+    public Orientation getOrientation() {
+        return orientation;
     }
 }

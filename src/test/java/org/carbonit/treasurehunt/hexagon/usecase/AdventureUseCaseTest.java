@@ -1,8 +1,8 @@
 package org.carbonit.treasurehunt.hexagon.usecase;
 
-import org.carbonit.treasurehunt.adapter.*;
+import org.carbonit.treasurehunt.adapters.secondary.*;
 import org.carbonit.treasurehunt.hexagon.model.Position;
-import org.carbonit.treasurehunt.hexagon.ports.ITreasuresDataReader;
+import org.carbonit.treasurehunt.hexagon.ports.secondary.ITreasuresDataReader;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
