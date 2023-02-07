@@ -1,6 +1,9 @@
 # TreasuresHunt : un exercice effectué à la demande de  : CarbonIT
-
 Remarque : L'exercice en question est redigé par la société CarbonIT.
+
+NB : L'execution de l'exercice necessite l'utilisation de deux arguments (Vm argument) : 
+-DPATH_ENTRY= le chemin absolu vers le fichier d'entrée
+-DPATH_RESULT= le chemin absolu du fichier contenant le resultat (le fichier sera créé par l'application)
 
 Exercice pratique - La carte aux
 trésors
@@ -118,6 +121,4 @@ A (Lara) T(2) .
 
 
 
-L'execution de l'exercice necessite l'utilisation de deux arguments (Vm argument) : 
--DPATH_ENTRY= le chemin absolu vers le fichier d'entrée
--DPATH_RESULT= le chemin absolu du fichier contenant le resultat (le fichier sera créé par l'application)
+
