@@ -1,37 +1,48 @@
 package org.carbonit.treasurehunt.hexagon.usecase;
 
 import org.carbonit.treasurehunt.hexagon.model.Adventurer;
-import org.carbonit.treasurehunt.hexagon.model.Cell;
 import org.carbonit.treasurehunt.hexagon.model.Land;
-import org.carbonit.treasurehunt.hexagon.model.Position;
 import org.carbonit.treasurehunt.hexagon.ports.ITreasuresDataReader;
-
 import java.util.List;
 
 public class AdventureUseCase {
 
-    public ITreasuresDataReader iTreasuresDataReader;
-    public AdventureUseCase(Land land) {
-        this.land = land;
-    }
-
+    private ITreasuresDataReader treasuresDataReader;
     private Land land;
 
-    public void lunchMovementsAdventurerInLand(Adventurer adventurer, String movingSequences) {
-        land.moveAdventurerInLand(adventurer, movingSequences);
+    public List<Adventurer> getAdventurers() {
+        return adventurers;
     }
 
-    public void initLandWithMountains(List<Position> mountains) {
-        mountains.forEach(land::addMountain);
+    private List<Adventurer> adventurers;
+
+
+    public AdventureUseCase(ITreasuresDataReader treasuresDataReader) {
+        this.treasuresDataReader = treasuresDataReader;
+        this.land = treasuresDataReader.getLand();
+        adventurers = treasuresDataReader.getAdventurers();
     }
 
-    public void initLandWithAdventurer(List<Adventurer> adventurers) {
+    public void lunchMovementsAdventurerInLand() {
+        for (int i = 0; i < adventurers.size(); i++) {
+            land.moveAdventurerInLand(adventurers.get(i), treasuresDataReader.getAdventurersMovementSequences().get(i));
+        }
+    }
+
+    public void initLandWithMountains() {
+        treasuresDataReader.getMountains().forEach(land::addMountain);
+    }
+
+    public void initLandWithAdventurer() {
         adventurers.forEach(land::addAdventurer);
     }
 
-    public void initLandWithTreasure(List<Cell> cellsWithTreasures) {
-        cellsWithTreasures.forEach(cell ->
+    public void initLandWithTreasure() {
+        treasuresDataReader.getCellsWithTreasure().forEach(cell ->
                 land.getCells()[cell.getPosition().getX()][cell.getPosition().getY()] = cell
         );
+    }
+    public Land getLand() {
+        return land;
     }
 }
